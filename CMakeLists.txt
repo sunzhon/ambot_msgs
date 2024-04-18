@@ -20,8 +20,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_message_files(
     FILES
-    AmbotAction.msg
-    AmbotState.msg
+    RobotAction.msg
+    RobotState.msg
     imu_base_msg.msg
     ImuState.msg
     JointState.msg
@@ -32,12 +32,6 @@ generate_messages(
     geometry_msgs
 )
 
-catkin_package(
-    INCLUDE_DIRS 
-    LIBRARIES 
-    CATKIN_DEPENDS roscpp std_msgs sensor_msgs  message_runtime
-    DEPENDS 
-)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -127,11 +121,19 @@ catkin_package(
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
+#catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES ambot_msgs
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
+#)
+
+
+catkin_package(
+    INCLUDE_DIRS 
+    LIBRARIES 
+    CATKIN_DEPENDS roscpp std_msgs sensor_msgs  message_runtime
+    DEPENDS 
 )
 
 ###########
@@ -197,11 +199,11 @@ include_directories(
 
 ## Mark libraries for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
-# install(TARGETS ${PROJECT_NAME}
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
-# )
+#install(TARGETS ${PROJECT_NAME}
+#  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+#)
 
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
@@ -209,6 +211,12 @@ include_directories(
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 # )
+
+install(
+  DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h"
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES
@@ -230,8 +238,3 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-install(
-  DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
-)

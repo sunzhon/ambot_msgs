@@ -26,7 +26,12 @@ add_message_files(
     ImuState.msg
     JointState.msg
     MotorAction.msg
+    force_base.msg
+    forceState.msg
+    GPSState.msg
+    GPS_base_msg.msg
 )
+
 generate_messages(
     DEPENDENCIES
     geometry_msgs

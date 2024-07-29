@@ -1,0 +1,2 @@
+GPS_base_msg position
+float32 speed

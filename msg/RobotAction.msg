@@ -1,2 +1,2 @@
-int8 motor_num
+uint8 motor_num
 MotorAction[] motorAction

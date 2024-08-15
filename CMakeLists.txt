@@ -23,6 +23,7 @@ add_message_files(
     RobotAction.msg
     RobotState.msg
     imu_base_msg.msg
+    imu_quaternion.msg
     ImuState.msg
     JointState.msg
     MotorAction.msg

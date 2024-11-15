@@ -1,0 +1,10 @@
+# Request
+int8 motion_mode
+---
+# Result
+float32 error
+---
+# Feedback
+
+bool result
+

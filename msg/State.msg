@@ -1,3 +1,3 @@
 uint8 motor_num
-sensor_msgs/Imu imu
+ImuState imu_state
 MotorState[] motor_state

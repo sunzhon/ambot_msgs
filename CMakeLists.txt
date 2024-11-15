@@ -12,7 +12,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+	add_compile_options(-Wall -Wno-dev -Wextra -Wpedantic)
 endif()
 
 # find dependencies
@@ -26,15 +26,19 @@ find_package(rosidl_default_generators REQUIRED)
 
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+	"msg/Quaternion.msg"
+	"msg/ImuBase.msg"
+	"msg/ImuState.msg"
 	    "msg/MotorState.msg"
 	    "msg/MotorAction.msg"
-	#    "msg/force_base.msg"
-	#    "msg/forceState.msg"
-	#    "msg/GPSState.msg"
+	    #"msg/force_base.msg"
+	    #    "msg/forceState.msg"
+	    #"msg/GPSState.msg"
 	#    "msg/GPS_base_msg.msg"
 	    "msg/Action.msg"
 	"msg/State.msg"
-	"srv/Status.srv"
+	"msg/UserCommand.msg"
+	"action/UserCommand.action"
 	  DEPENDENCIES sensor_msgs
  )
 

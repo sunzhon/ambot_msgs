@@ -1,0 +1,8 @@
+# MotorState.msg
+float32 q
+float32 dq
+float32 ddq
+float32 tau
+float32 temp
+float32 mode
+int32 merror

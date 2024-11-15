@@ -1,6 +1,8 @@
-uint8 mode
+# MotorAction.msg
+int8 mode
+int8 id
 float32 q
 float32 dq
-float32 tor
-float32 Kp
-float32 Kd
+float32 tau
+float32 kp
+float32 kd

@@ -1,4 +1,5 @@
 # MotorState.msg
+int8 id
 float32 q
 float32 dq
 float32 ddq
